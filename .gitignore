@@ -1,0 +1,4 @@
+# Ignore automatically generated inputs
+*/Input/
+# Ignore automatically generated outputs
+*/Output/
