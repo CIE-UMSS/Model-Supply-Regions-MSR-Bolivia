@@ -2,3 +2,5 @@
 */Input/
 # Ignore automatically generated outputs
 */Output/
+# Ignore region boundary maps
+/1. MSR Creator/RegionBoundaryMaps/

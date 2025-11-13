@@ -4,8 +4,8 @@
 
 import math
 import os
-del os.environ['PROJ_LIB']
-import pyproj
+#del os.environ['PROJ_LIB']
+#import pyproj
 import json
 import scipy.stats
 import struct, time
@@ -18,10 +18,10 @@ import string
 import numpy as np
 from scipy.ndimage.measurements import label
 from pathlib import Path
-import rioxarray
+#import rioxarray
 import rasterio
 from rasterio.features import shapes
-from rasterio.warp import reproject, Resampling
+#from rasterio.warp import reproject, Resampling
 import xarray
 import xrspatial
 import richdem as rd
@@ -30,7 +30,7 @@ from shapely.geometry import box, mapping
 from rasterstats import zonal_stats
 from colorama import Fore
 from math import ceil
-from osgeo import osr
+#from osgeo import osr
 
 
 # import warnings
