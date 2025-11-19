@@ -4,8 +4,8 @@
 
 import math
 import os
-#del os.environ['PROJ_LIB']
-#import pyproj
+del os.environ['PROJ_LIB']
+import pyproj
 import json
 import scipy.stats
 import struct, time
@@ -18,10 +18,10 @@ import string
 import numpy as np
 from scipy.ndimage.measurements import label
 from pathlib import Path
-#import rioxarray
+import rioxarray
 import rasterio
 from rasterio.features import shapes
-#from rasterio.warp import reproject, Resampling
+from rasterio.warp import reproject, Resampling
 import xarray
 import xrspatial
 import richdem as rd
@@ -30,7 +30,7 @@ from shapely.geometry import box, mapping
 from rasterstats import zonal_stats
 from colorama import Fore
 from math import ceil
-#from osgeo import osr
+from osgeo import osr
 
 
 # import warnings
@@ -504,7 +504,7 @@ for CountryCounter in range(0,len(AllCountries)):#country wise loop
                     ScoredLayer = ScoredLayer.where(~LayerToScore.isin([11, 14, 20, 30, 110, 120, 130, 140, 150, 180, 190, 200]), 1)
 
                 if LayerToScoreName=="%s_projected"%FileName_Elevation:
-                    ScoredLayer = ScoredLayer.where(~(LayerToScore<4000),1)    #initially 2000 but changed to 4000 for Bolivia's mountain conditions
+                    ScoredLayer = ScoredLayer.where(~(LayerToScore<3500),1)    #initially 2000 but changed for Bolivia's mountain conditions
 
                 if LayerToScoreName=="%s_projected"%FileName_PopulationDensity:
                     ScoredLayer = ScoredLayer.where(~(LayerToScore<=PopulationThreshold[0]),1)

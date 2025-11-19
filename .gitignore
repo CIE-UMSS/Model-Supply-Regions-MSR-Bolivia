@@ -4,3 +4,5 @@
 */Output/
 # Ignore region boundary maps
 /1. MSR Creator/RegionBoundaryMaps/
+# Ignore files with LogFile.csv in the name
+*LogFile.csv*
