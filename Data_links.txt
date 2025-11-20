@@ -1,0 +1,8 @@
+Links for base data used for each script:
+1. MSR Creator:
+	*Input 
+	*RegionBoundaryMaps
+2. Profile Generator:
+	*2018_LatAm.nc
+
+
