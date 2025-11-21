@@ -5,8 +5,10 @@
 */Output_*/
 */Results-Prescreen*
 */Results-Screened*
+*/solar/
+*/wind/
 # Ignore region boundary maps
-/1. MSR Creator/RegionBoundaryMaps/
+*/RegionBoundaryMaps/
 # Ignore files with LogFile.csv in the name
 *LogFile.csv*
 # Ignore large data files (.nc)

@@ -1,5 +1,5 @@
 ﻿ctrl,val,explanatory
-f_in,D:/Dropbox/IRENA_work/SPLAT Modelling Projects/2021_Africa Continental Transmission MP/01_modelling & data/01 Input data (original & adaptations)/01 Solar and wind profiles/files in xlsx format/Wind_Uniform_best45MSRs.xlsx,input path for merge
+f_in,C:\Users\Carlos\Desktop\MSR\Model-Supply-Regions-MSR-Toolset\4. Screener\Results-Screened_Bolivia\Wind_BestMSRsToCover5%CountryArea.csv,input path for merge
 iterations,1000,number of iterations for k-means clustering
 cluster_metric,euclidean,clustering type for k-means clustering. Euclidean is default but can have other types c.f. TimeSeriesKMeans package
 debug_out,0,whether to write out debugging file
