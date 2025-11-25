@@ -1,8 +1,8 @@
-Links for base data used for each script:
+Links for data and outputs in for the Bolivian case in: "https://mseduculiegebe-my.sharepoint.com/:f:/r/personal/caa_fernandez_doct_uliege_be/Documents/Documents/2025/Articulos%20y%20publicaciones/Cost%20supply%20curve/Model-Supply-Regions-MSR-Toolset%20-%20Copy?csf=1&web=1&e=dCJkxj"
+
+Base data required (used for Bolivia):
 1. MSR Creator:
 	*Input 
 	*RegionBoundaryMaps
 2. Profile Generator:
 	*2018_LatAm.nc
-
-
