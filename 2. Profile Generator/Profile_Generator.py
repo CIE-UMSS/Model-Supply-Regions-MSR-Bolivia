@@ -217,7 +217,7 @@ ControlConfigurations=pd.read_excel('ControlFile_ProfileGenerator.xlsx', sheet_n
 pd_CountryUTC_offsets=pd.read_excel('ControlFile_ProfileGenerator.xlsx', sheet_name="CountryUTC_Offset_InUse")
 
 #load paths
-np_ERA5Data=Dataset(ControlPathsAndNames.loc["ERA5DataFilePath"][0])
+np_ERA5Data=Dataset(ControlPathsAndNames.loc["ERA5DataFilePath_inst"][0])
 pd_WindSpeed_to_Power = pd.read_csv(ControlPathsAndNames.loc["ThreeIEC_TurbinePowerCurves"][0])
 AllCountries=pd.read_csv(ControlPathsAndNames.loc["FileAddress_CountryNamesList"][0],names=["Ct"])
 Input_MSR_Folder=ControlPathsAndNames.loc["Input_MSR_Folder"][0]

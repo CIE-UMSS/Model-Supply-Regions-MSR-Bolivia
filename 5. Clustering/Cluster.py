@@ -1,8 +1,9 @@
 #Li Yunshu, Oct 2021, for IRENA
 import pandas as pd
-from tslearn.clustering import TimeSeriesKMeans
+from tslearn.clustering import TimeSeriesKMeans ######## had to install tslearn package in the environment
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd ######## had to import it to make variables be recognized as dataframes
 import re
 import os
 
@@ -18,8 +19,8 @@ metric = ctrl.loc['cluster_metric']['val']  #default is euclidean
 ctrl_param_in = ctrl.loc['ctrl_param_in']['val']  #parameters' mode of aggregation
 ctryf_writeout = ctrl.loc['ctryf_writeout']['val']  #if write to separate country folders
 
-raw = pd.read_excel(f_in)
-raw = raw.set_index('Zone_ID')
+raw = pd.read_csv(f_in) ######## changed excel to csv
+raw = raw.set_index('MSR_ID') ######## changed 
 #print(raw)
 
 #params_to_output = ['Area sq.Km', 'Max Capacity MW', 'DistFromTL Km'] #not used yet
@@ -36,7 +37,7 @@ wmean_IEC_param = ctrl_param[ctrl_param['mode'] == 'wmean_IEC']['param']
 
 debug = pd.DataFrame()
 out_dir = tech
-os.mkdir(out_dir)  # make output directory
+os.mkdir(out_dir)  ######## take care of deleting the output directory before a new run
 
 for ctry in nclust_all:
 
@@ -75,7 +76,7 @@ for ctry in nclust_all:
 #
 #         #Aggregate parameters
         clust_table = pd.DataFrame(index=range(nclust))
-        clust_table['Zones count'] = all_table['Area sq.Km'].count()
+        clust_table['Zones count'] = all_table['AreakM2'].count()
 #
         for p in sum_param:
             clust_table[p] = all_table[p].sum()
@@ -86,7 +87,7 @@ for ctry in nclust_all:
 #
         all_table_['weights'] = len(all_table_)
         for c in range(nclust):
-            all_table_.loc[all_table_['cluster']==c,'weights'] = all_table_[all_table_['cluster']==c]['Max Capacity MW']/clust_table.loc[c]['Max Capacity MW']
+            all_table_.loc[all_table_['cluster']==c,'weights'] = all_table_[all_table_['cluster']==c]['CapacityMW']/clust_table.loc[c]['CapacityMW']
 #
         for p in wmean_param:
             p_ = p + '_'
@@ -98,7 +99,7 @@ for ctry in nclust_all:
             for p in wmean_IEC_param:
                 p_ = p + '_'
                 all_table_[p + '_'] = all_table_[p].str.replace(r'\D', '').astype(int) * all_table_['weights']
-                clust_table[p] = 'Class-' + round((all_table_.groupby(['cluster']))[p+'_'].sum()).astype(int).astype(str)
+                clust_table[p] = 'Class-' + round(pd.to_numeric((all_table_.groupby(['cluster']))[p+'_'].sum())).astype(int).astype(str)  ######## added the transformation of IEC_Class_ values to numeric because of a code break
         except:
             print('WARNING: no parameter using wmean_IEC, if running for wind, check if this is defined. Perhaps you are running for solar?')
 
@@ -107,7 +108,7 @@ for ctry in nclust_all:
 #
 #         #Aggregate capacity factors
         all_table_profiles = raw_trunc.copy().T.astype(float)
-        all_table_profiles = all_table_profiles.multiply(all_table_['weights'], axis=0)
+        all_table_profiles = all_table_profiles.multiply(pd.to_numeric(all_table_['weights']), axis=0)  ######## added the transformation of weights values to numeric because of a code break
         all_table_profiles['cluster'] = labels
         all_table_profiles = all_table_profiles.groupby(['cluster']).sum()
 
@@ -153,5 +154,5 @@ bigT.index = bigT.index + 1
 cols = bigT.columns.tolist()
 cols = cols[-1:] + cols[:-1] #move countryname to first position
 bigT = bigT[cols]
-bigT.to_csv('bigT.csv')
-all_table_all.to_csv('unclustered_zones_all.csv')
+bigT.to_csv(out_dir +'/'+'bigT.csv')
+all_table_all.to_csv(out_dir +'/'+'unclustered_zones_all.csv')

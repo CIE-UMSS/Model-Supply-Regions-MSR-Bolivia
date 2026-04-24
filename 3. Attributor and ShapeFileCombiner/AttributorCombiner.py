@@ -113,7 +113,7 @@ if Flag_RunWind:
 
                 gdf_SingleCountry['CtryName'] = country
 
-                dc_WS_ZoneStats_withGWA = zonal_stats(file_to_read,r"%s\%s\%s\%s_GWA_Africa100m_projected.tif"%(Input_MSR_Folder,country,ResourceRasterCarryingSubFolderName,WindNameConvention),stats="count min mean max median sum")
+                dc_WS_ZoneStats_withGWA = zonal_stats(file_to_read,r"%s\%s\%s\%s_GWA_LatAm100m_projected.tif"%(Input_MSR_Folder,country,ResourceRasterCarryingSubFolderName,WindNameConvention),stats="count min mean max median sum")
 
                 MeanResource_AverageAcrossMSR=pd.DataFrame(index=gdf_SingleCountry.index,columns=["ZoneMean_m/s"])
                 #MeanResource_AverageAcrossMSR['ZoneMean_m/s'][pd.isnull(MeanResource_AverageAcrossMSR['ZoneMean_m/s'])] = MeanResource_AverageAcrossMSR['ZoneMean_m/s'].mean() # there can be some very rare cases Nonetypes get involved from zonal_stats command

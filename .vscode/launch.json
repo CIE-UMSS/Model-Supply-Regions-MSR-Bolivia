@@ -1,0 +1,43 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger: Run MSR Creator",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/1. MSR Creator",
+            "program": "${file}"
+        },
+        {
+            "name": "Python Debugger: Profile generator",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/2. Profile Generator",
+            "program": "${file}"
+        },
+        {
+            "name": "Python Debugger: Attributor & combiner",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/3. Attributor and ShapeFileCombiner",
+            "program": "${file}"
+        },
+        {
+            "name": "Python Debugger: Screener",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/4. Screener",
+            "program": "${file}"
+        },
+        {
+            "name": "Python Debugger: Clustering",
+            "type": "debugpy",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/5. Clustering",
+            "program": "${file}"
+        },
+    ]
+}
